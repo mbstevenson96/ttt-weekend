@@ -1,5 +1,14 @@
 /*------------------------ Constants -----------------------*/
-
+const winningCombos = [
+  [board[0], board[1], board[2]],
+  [board[0], board[3], board[6]],
+  [board[0], board[4], board[8]],
+  [board[1], board[4], board[7]],
+  [board[2], board[4], board[6]],
+  [board[2], board[5], board[8]],
+  [board[3], board[4], board[5]],
+  [board[6], board[7], board[8]]
+];
 
 
 /*--------------------- Variables (state) ------------------*/
@@ -10,7 +19,8 @@ let board, turn, winner
 
 
 /*---------------- Cached Element References --------------*/
-const squareEls = document.querySelector('.boardSquares')
+const squareEls = document.querySelectorAll('.boardSquares')
+
 const messageEl = document.getElementById('message')
 
 
@@ -22,7 +32,7 @@ const messageEl = document.getElementById('message')
 /*----------------------- Functions -----------------------*/
 init ()
 
-function init() {
+function init(){
   board = [null, null, null, null, null, null, null, null, null,]
   turn = 1
   winner = null
@@ -30,7 +40,26 @@ function init() {
 }
 
 function render () {
-  
+  board.forEach((square, idx) => {
+    squareEls[idx].innerText = square
+    if (square === null) {
+      squareEls[idx].innerText = ''
+    }
+    if (square === 1) {
+      squareEls[idx].innerText = 'X'
+    }
+    if (square === -1) {
+      squareEls[idx].innerText = 'O'
+    }
+  })
+  if (winner) {
+  return `Congrats player, ${square}`
+  }
+  else if (!winner) {
+    return `Next move, ${square}`};
+  else (winner === 'T') {
+    return 'Tie Game!'
+  }
 }
 
 
