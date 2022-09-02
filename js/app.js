@@ -1,23 +1,36 @@
-/*-------------------------------- Constants --------------------------------*/
+/*------------------------ Constants -----------------------*/
 
 
 
-/*---------------------------- Variables (state) ----------------------------*/
+/*--------------------- Variables (state) ------------------*/
 let board, turn, winner
-// board = represent state of hte squares
+// board = represent state of the squares
 // turn = track whose turn it is
 // winner = represent if anyone has won yet or if there is a tie
 
 
-/*------------------------ Cached Element References ------------------------*/
+/*---------------- Cached Element References --------------*/
 const squareEls = document.querySelector('.boardSquares')
 const messageEl = document.getElementById('message')
 
 
 
-/*----------------------------- Event Listeners -----------------------------*/
+/*------------------- Event Listeners --------------------*/
 
 
 
-/*-------------------------------- Functions --------------------------------*/
+/*----------------------- Functions -----------------------*/
+init ()
+
+function init() {
+  board = [null, null, null, null, null, null, null, null, null,]
+  turn = 1
+  winner = null
+  render ()
+}
+
+function render () {
+  
+}
+
 
