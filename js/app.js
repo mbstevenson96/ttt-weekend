@@ -1,14 +1,14 @@
 /*------------------------ Constants -----------------------*/
 const winningCombos = [
-  [board[0], board[1], board[2]],
-  [board[0], board[3], board[6]],
-  [board[0], board[4], board[8]],
-  [board[1], board[4], board[7]],
-  [board[2], board[4], board[6]],
-  [board[2], board[5], board[8]],
-  [board[3], board[4], board[5]],
-  [board[6], board[7], board[8]]
-];
+  [0, 1, 2],
+  [3, 4, 5],
+  [6, 7, 8],
+  [0, 3, 6],
+  [1, 4, 7],
+  [2, 5, 8],
+  [0, 4, 8],
+  [2, 4, 6]
+]
 
 
 /*--------------------- Variables (state) ------------------*/
@@ -19,15 +19,15 @@ let board, turn, winner
 
 
 /*---------------- Cached Element References --------------*/
-const squareEls = document.querySelectorAll('.boardSquares')
-
+const squareEls = document.querySelectorAll('section > div')
 const messageEl = document.getElementById('message')
 
 
 
 /*------------------- Event Listeners --------------------*/
-
-
+squareEls.forEach(square => {
+square.addEventListener('click', handleClick)
+});
 
 /*----------------------- Functions -----------------------*/
 init ()
@@ -51,15 +51,46 @@ function render () {
     if (square === -1) {
       squareEls[idx].innerText = 'O'
     }
+    // console.log('sainityyyyyy');
   })
-  if (winner) {
-  return `Congrats player, ${square}`
+  if (!winner) {
+    messageEl.innerText = `Your turn player ${turn === 1 ? "X" : "O"}!`
   }
-  else if (!winner) {
-    return `Next move, ${square}`};
-  else (winner === 'T') {
-    return 'Tie Game!'
+  else if (winner === 'T') {
+    messageEl.innerText = `Tie Game!!!`
+  }
+  else {
+    messageEl.innerText = `Congratulations on winning ${winner === 1 ? "X" : "O"}!`
+  }
+}
+
+function handleClick (event) {
+  // what is board and how does it relate to the sqIdx
+  // how can we assign this to evt
+  let sqIdx = parseInt(event.target.id.replace('sq', ''))
+  if (board[sqIdx] || winner) {
+    return
+  }
+  board[sqIdx] = turn
+  turn *= -1;
+
+  let winner
+
+  if(winner) {
+    getWinner()
   }
 }
 
 
+// function getWinner() {
+//   let total = 0
+//   for (let i = 0; i < winningCombos[i].length; i++) {
+//     total += (-1 *(winningCombos[i][0] + winningCombos[i][1] + winningCombos[i][2]))
+
+//     console.log('total is', total);
+
+//     if (total === 3) {
+//       (winner)
+//     }
+//   }
+// }
