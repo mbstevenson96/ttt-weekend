@@ -21,13 +21,15 @@ let board, turn, winner
 /*---------------- Cached Element References --------------*/
 const squareEls = document.querySelectorAll('section > div')
 const messageEl = document.getElementById('message')
-
+const resetBtn = document.getElementById('reset')
 
 
 /*------------------- Event Listeners --------------------*/
 squareEls.forEach(square => {
 square.addEventListener('click', handleClick)
 });
+
+resetBtn.addEventListener('click', init)
 
 /*----------------------- Functions -----------------------*/
 init ()
@@ -69,28 +71,32 @@ function handleClick (event) {
   // how can we assign this to evt
   let sqIdx = parseInt(event.target.id.replace('sq', ''))
   if (board[sqIdx] || winner) {
-    return
+    return "Game Over"
   }
   board[sqIdx] = turn
-  turn *= -1;
+  turn *= -1
 
-  let winner
+  winner = getWinner()
 
-  if(winner) {
-    getWinner()
+  render ()
+}
+// console.log('hello', handleClick);
+
+function getWinner() {
+  // let total = 0
+  for (let i = 0; i < winningCombos.length; i++) {
+    total = (Math.abs(board[winningCombos[i][0]] + board[winningCombos[i][1]] + board[winningCombos[i][2]]) === 3)
+    return board[winningCombos[i][0]]
+    
+  //   if (total === 3) {
+  //     return winner = board[winningCombos[i][0]]
+  //   }
+  // }
+  // console.log('hello', winner);
+}
+  if (board.includes(null)) {
+    return null
+  } else {
+    return "T"
   }
 }
-
-
-// function getWinner() {
-//   let total = 0
-//   for (let i = 0; i < winningCombos[i].length; i++) {
-//     total += (-1 *(winningCombos[i][0] + winningCombos[i][1] + winningCombos[i][2]))
-
-//     console.log('total is', total);
-
-//     if (total === 3) {
-//       (winner)
-//     }
-//   }
-// }
