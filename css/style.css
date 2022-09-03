@@ -43,15 +43,20 @@ div {
 }
 
 #reset:hover {
-  background-color: #3D1308;
-  color: white;
+  background-color: #FAFF00;
+  color: black;
+  border-color: black;
+  border: 3px solid;
 }
 
 #reset {
   margin: 20px;
   color: #BBE5ED;
   border-color: #BBE5ED;
-  font-size: 20px;
+  font-size: 30px;
 }
 
+.boardSquares {
+  color: #FAFF00;
+}
 
