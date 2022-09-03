@@ -29,10 +29,15 @@ squareEls.forEach(square => {
 square.addEventListener('click', handleClick)
 });
 
-resetBtn.addEventListener('click', init)
+resetBtn.addEventListener('click', (event) => {
+  init ()
+  messageEl.innerText = "Start Game Player X!"
+})
 
 /*----------------------- Functions -----------------------*/
 init ()
+
+messageEl.innerText = "Start Game!"
 
 function init(){
   board = [null, null, null, null, null, null, null, null, null,]
@@ -71,7 +76,7 @@ function handleClick (event) {
   // how can we assign this to evt
   let sqIdx = parseInt(event.target.id.replace('sq', ''))
   if (board[sqIdx] || winner) {
-    return "Game Over"
+    return
   }
   board[sqIdx] = turn
   turn *= -1
@@ -83,10 +88,9 @@ function handleClick (event) {
 // console.log('hello', handleClick);
 
 function getWinner() {
-  // let total = 0
   for (let i = 0; i < winningCombos.length; i++) {
     if (Math.abs(board[winningCombos[i][0]] + board[winningCombos[i][1]] + board[winningCombos[i][2]]) === 3)
-    return board[winningCombos[i][2]]
+    return board[winningCombos[i][0]]
   }
   if (board.includes(null)) {
     return null
