@@ -31,7 +31,7 @@ square.addEventListener('click', handleClick)
 
 resetBtn.addEventListener('click', (event) => {
   init ()
-  messageEl.innerText = "Start Game Player X!"
+  messageEl.innerText = "Start Game!"
 })
 
 /*----------------------- Functions -----------------------*/
