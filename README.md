@@ -4,8 +4,9 @@
 ``` BASH
 
 CITED SOURCES:
-- Used styling from Bootstrap
+- Used button styling from Bootstrap
 - Used Google Fonts
+- Used confetti library
 
 
 ```
