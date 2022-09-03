@@ -86,14 +86,8 @@ function getWinner() {
   // let total = 0
   for (let i = 0; i < winningCombos.length; i++) {
     total = (Math.abs(board[winningCombos[i][0]] + board[winningCombos[i][1]] + board[winningCombos[i][2]]) === 3)
-    return board[winningCombos[i][0]]
-    
-  //   if (total === 3) {
-  //     return winner = board[winningCombos[i][0]]
-  //   }
-  // }
-  // console.log('hello', winner);
-}
+    return board[winningCombos[i][2]]
+  }
   if (board.includes(null)) {
     return null
   } else {
