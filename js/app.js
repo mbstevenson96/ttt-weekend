@@ -62,7 +62,7 @@ function render () {
     messageEl.innerText = `Tie Game!!!`
   }
   else {
-    messageEl.innerText = `Congratulations on winning ${winner === 1 ? "X" : "O"}!`
+    messageEl.innerText = `Congrats on winning ${winner === 1 ? "X" : "O"}!`
   }
 }
 
@@ -85,7 +85,7 @@ function handleClick (event) {
 function getWinner() {
   // let total = 0
   for (let i = 0; i < winningCombos.length; i++) {
-    total = (Math.abs(board[winningCombos[i][0]] + board[winningCombos[i][1]] + board[winningCombos[i][2]]) === 3)
+    if (Math.abs(board[winningCombos[i][0]] + board[winningCombos[i][1]] + board[winningCombos[i][2]]) === 3)
     return board[winningCombos[i][2]]
   }
   if (board.includes(null)) {
