@@ -19,10 +19,11 @@ let board, turn, winner
 
 
 /*---------------- Cached Element References --------------*/
-const squareEls = document.querySelectorAll('section > div')
+const squareEls = document.querySelectorAll('.boardsquares')
 const messageEl = document.getElementById('message')
 const resetBtn = document.getElementById('reset')
 
+console.log('hello', squareEls);
 
 /*------------------- Event Listeners --------------------*/
 squareEls.forEach(square => {
@@ -68,7 +69,7 @@ function render () {
   }
   else {
     messageEl.innerText = `Congrats on winning ${winner === 1 ? "X" : "O"}!`
-    confetti.start(2000)
+    confetti.start(4000)
   }
 }
 
