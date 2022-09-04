@@ -23,17 +23,14 @@ const squareEls = document.querySelectorAll('.boardsquares')
 const messageEl = document.getElementById('message')
 const resetBtn = document.getElementById('reset')
 
-console.log('hello', squareEls);
+// console.log('hello', squareEls);
 
 /*------------------- Event Listeners --------------------*/
 squareEls.forEach(square => {
 square.addEventListener('click', handleClick)
 });
 
-resetBtn.addEventListener('click', (event) => {
-  init ()
-  messageEl.innerText = "Start Game!"
-})
+resetBtn.addEventListener('click', resetGame)
 
 /*----------------------- Functions -----------------------*/
 init ()
@@ -99,4 +96,9 @@ function getWinner() {
   } else {
     return "T"
   }
+}
+
+function resetGame () {
+  init ()
+  messageEl.innerText = "Start Game!"
 }
