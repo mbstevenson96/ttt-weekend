@@ -38,7 +38,7 @@ init ()
 messageEl.innerText = "Start Game!"
 
 function init(){
-  board = [null, null, null, null, null, null, null, null, null,]
+  board = [null, null, null, null, null, null, null, null, null]
   turn = 1
   winner = null
   render ()
@@ -66,7 +66,7 @@ function render () {
   }
   else {
     messageEl.innerText = `Congrats on winning ${winner === 1 ? "X" : "O"}!`
-    confetti.start(4000)
+    confetti.start(2500)
   }
 }
 
