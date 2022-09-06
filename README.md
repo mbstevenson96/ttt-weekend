@@ -3,10 +3,10 @@
 
 ``` BASH
 
-CITED SOURCES:
-- Used button styling from Bootstrap
-- Used Google Fonts
-- Used confetti library
+CITE SOURCES:
+- Use button styling from Bootstrap
+- Use Google Fonts
+- Use confetti library
 
 
 ```
